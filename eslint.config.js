@@ -5,6 +5,7 @@ import globals from "globals";
 import ts from "typescript-eslint";
 import svelteConfig from "./svelte.config.js";
 import eslintPluginPrettier from "eslint-plugin-prettier";
+import jsdoc from "eslint-plugin-jsdoc";
 
 export default ts.config(
     js.configs.recommended,
@@ -44,10 +45,12 @@ export default ts.config(
     {
         plugins: {
             eslintPluginPrettier,
+            jsdoc
         },
         rules: {
             // Override or add rule settings here, such as:
             // 'svelte/rule-name': 'error'
+            "jsdoc/require-description": "warn"
         },
     }
 );

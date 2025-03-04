@@ -2,19 +2,19 @@
 import IconLink from "./lib/components/IconLink.svelte";
 import Link from "./lib/components/Link.svelte";
 import ServiceContainer from "./lib/components/ServiceContainer.svelte";
-import { getServices } from "./lib/utils/services";
+import { getServices } from "./lib/utils/config/services";
 
 let servicesResult = getServices();
 $inspect(servicesResult);
 </script>
 
 <header
-    class="flex items-center justify-between border-b border-b-zinc-200 bg-white p-2 align-middle shadow"
+    class="flex min-h-16 items-center justify-between border-b border-b-zinc-200 bg-white p-3 align-middle text-zinc-700 shadow"
 >
     <div>
         <a class="flex items-center gap-1 align-middle" href="/">
-            <img class="h-8 w-8" src="/bonfire.png" alt="logo" />
-            <h1 class="text-lg font-semibold">Campfire</h1>
+            <img class="h-10 w-10" src="/bonfire.png" alt="logo" />
+            <h1 class="text-2xl font-semibold tracking-wide">Campfire</h1>
         </a>
     </div>
 
@@ -31,14 +31,14 @@ $inspect(servicesResult);
     </nav>
 </header>
 
-<main class="flex-1 bg-zinc-100 p-2">
+<main class="flex-1 bg-zinc-100 p-3 text-zinc-700">
     {#await servicesResult}
         <p>Loading data...</p>
     {:then result}
-        {#if !(result.ok)}
+        {#if !result.ok}
             <p>{JSON.stringify(result.error)}</p>
         {:else}
-            {#each result.value as service}
+            {#each result.value as service, index (index)}
                 <ServiceContainer {...service} />
             {/each}
         {/if}
@@ -46,7 +46,7 @@ $inspect(servicesResult);
 </main>
 
 <footer
-    class="mt-auto min-h-10 border-t border-t-zinc-200 bg-white p-2 text-center"
+    class="mt-auto min-h-10 border-t border-t-zinc-200 bg-white p-3 text-center text-zinc-700"
 >
     <span>
         Created with

@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Service } from "../types/services.types";
+import type { Service } from "../types/config.types";
 import ServiceItem from "./ServiceItem.svelte";
 
 let { name, icon, items }: Service = $props();
@@ -11,7 +11,7 @@ let { name, icon, items }: Service = $props();
         <span class="ml-1 text-2xl">{name}</span>
     </div>
     <div>
-        {#each items as item}
+        {#each items as item, index (index)}
             <ServiceItem {...item} />
         {/each}
     </div>
