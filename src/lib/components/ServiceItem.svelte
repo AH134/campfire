@@ -1,0 +1,19 @@
+<script lang="ts">
+import type { Item } from "../types/services.types";
+
+let { name, subtitle, logo, url }: Item = $props();
+</script>
+
+<div
+    class="mb-3 translate-y-0.5 rounded bg-white shadow-md duration-300 ease-in-out hover:-translate-y-0.5 hover:transition-all"
+>
+    <a href={url}>
+        <div class="flex h-20 items-center gap-2 p-2">
+            <img class="h-12 w-12" src={logo} alt={logo} />
+            <div>
+                <h1 class=" font-semibold">{name}</h1>
+                <span>{subtitle}</span>
+            </div>
+        </div>
+    </a>
+</div>

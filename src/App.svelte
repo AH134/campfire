@@ -1,5 +1,11 @@
 <script lang="ts">
-import IconLink from "./lib/components/IconLink.svelte"
+import IconLink from "./lib/components/IconLink.svelte";
+import Link from "./lib/components/Link.svelte";
+import ServiceContainer from "./lib/components/ServiceContainer.svelte";
+import { getServices } from "./lib/utils/services";
+
+let servicesResult = getServices();
+$inspect(servicesResult);
 </script>
 
 <header
@@ -16,7 +22,7 @@ import IconLink from "./lib/components/IconLink.svelte"
         <ul>
             <li>
                 <IconLink
-                    name="github"
+                    ariaLabel="github"
                     href="https://github.com/AH134/campfire"
                     awesomeIcon="fa-brands fa-github fa-xl"
                 />
@@ -25,28 +31,28 @@ import IconLink from "./lib/components/IconLink.svelte"
     </nav>
 </header>
 
-<main class="flex-1 p-2"></main>
+<main class="flex-1 bg-zinc-100 p-2">
+    {#await servicesResult}
+        <p>Loading data...</p>
+    {:then result}
+        {#if !(result.ok)}
+            <p>{JSON.stringify(result.error)}</p>
+        {:else}
+            {#each result.value as service}
+                <ServiceContainer {...service} />
+            {/each}
+        {/if}
+    {/await}
+</main>
 
 <footer
-    class=" mt-auto min-h-10 border-t border-t-zinc-200 bg-white p-2 text-center"
+    class="mt-auto min-h-10 border-t border-t-zinc-200 bg-white p-2 text-center"
 >
     <span>
         Created with
-        <a
-            class="text-blue-600 hover:text-zinc-800"
-            href="https://svelte.dev"
-            target="_blank">svelte</a
-        >,
-        <a
-            class="text-blue-600 hover:text-zinc-800"
-            href="https://tailwindcss.com"
-            target="_blank">tailwindcss</a
-        >
+        <Link text="svelte" href="https://svelte.dev" />,
+        <Link text="tailwindcss" href="https://tailwindcss.com" />
         &
-        <a
-            class="text-blue-600 hover:text-zinc-800"
-            href="https://fontawesome.com"
-            target="_blank">font awesome</a
-        >
+        <Link text="font awesome" href="https://fontawesome.com" />
     </span>
 </footer>
