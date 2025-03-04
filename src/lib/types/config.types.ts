@@ -1,4 +1,4 @@
-export type ServiceYamlSchema = {
+export type ConfigSchema = {
     services: Service[];
 };
 
