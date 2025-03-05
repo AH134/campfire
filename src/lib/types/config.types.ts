@@ -1,4 +1,4 @@
-export type ConfigSchema = {
+export type DashboardConfig = {
     services: Service[];
 };
 
