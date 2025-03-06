@@ -1,0 +1,45 @@
+# Config example
+# For icons, check https://fontawesome.com/search?ic=free
+
+# services:
+#   - name: "media"
+#     icon: "fas fa-photo-video" -> https://fontawesome.com/search?ic=free
+#     items:
+#       - name: "jellyfin"
+#         subtitle: "movies & shows"
+#         url: "localhost"
+#         logo: "/data/imgs/jellyfin.svg"
+#         target: "_blank"
+
+#   - name: "applications"
+#     icon: "fas fa-layer-group"
+#     items:
+#       - name: "openbooks"
+#         subtitle: "search & download books"
+#         url: "localhost"
+#         logo: "/data/imgs/openbooks.svg"
+#         target: "_blank"
+#       - name: "another item"
+#         subtitle: "this and that"
+#         url: "localhost"
+#         logo: "/data/imgs/another-item.svg"
+#         target: "_self"
+
+services:
+  - name: "media"
+    icon: "fas fa-photo-video"
+    items:
+      - name: "jellyfin"
+        subtitle: "movies & shows"
+        url: "localhost"
+        logo: "/data/imgs/jellyfin.svg"
+        target: "_blank"
+
+  - name: "applications"
+    icon: "fas fa-layer-group"
+    items:
+      - name: "openbooks"
+        subtitle: "search & download books"
+        url: "localhost"
+        logo: "/data/imgs/openbooks.svg"
+        target: "_blank"
