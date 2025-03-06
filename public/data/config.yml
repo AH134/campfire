@@ -1,22 +1,21 @@
 # Config example
-# For icons, check https://fontawesome.com/search?ic=free
-
+#
 # services:
 #   - name: "media"
-#     icon: "fas fa-photo-video" -> https://fontawesome.com/search?ic=free
+#     icon: "fas fa-photo-video" (for icons, check https://fontawesome.com/search?ic=free)
 #     items:
 #       - name: "jellyfin"
 #         subtitle: "movies & shows"
-#         url: "localhost"
+#         url: "https://jellyfin.org/"
 #         logo: "/data/imgs/jellyfin.svg"
 #         target: "_blank"
-
+#
 #   - name: "applications"
 #     icon: "fas fa-layer-group"
 #     items:
 #       - name: "openbooks"
 #         subtitle: "search & download books"
-#         url: "localhost"
+#         url: "https://github.com/evan-buss/openbooks"
 #         logo: "/data/imgs/openbooks.svg"
 #         target: "_blank"
 #       - name: "another item"
@@ -26,20 +25,26 @@
 #         target: "_self"
 
 services:
-  - name: "media"
+  - name: "Media"
     icon: "fas fa-photo-video"
     items:
       - name: "jellyfin"
         subtitle: "movies & shows"
-        url: "localhost"
+        url: "https://jellyfin.org/"
         logo: "/data/imgs/jellyfin.svg"
         target: "_blank"
 
-  - name: "applications"
-    icon: "fas fa-layer-group"
-    items:
       - name: "openbooks"
         subtitle: "search & download books"
-        url: "localhost"
+        url: "https://github.com/evan-buss/openbooks"
         logo: "/data/imgs/openbooks.svg"
+        target: "_blank"
+
+  - name: "Services"
+    icon: "fas fa-layer-group"
+    items:
+      - name: "Pihole"
+        subtitle: "Black hole for ads"
+        url: "https://pi-hole.net/"
+        logo: "/data/imgs/pihole.svg"
         target: "_blank"
