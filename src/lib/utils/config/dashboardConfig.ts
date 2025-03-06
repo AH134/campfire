@@ -17,7 +17,6 @@ export const getYamlConfig = async (
     try {
         const response = await fetch(configPath);
         const yamlContent = await response.text();
-        console.log(response);
 
         return {
             success: true,
