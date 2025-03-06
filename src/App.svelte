@@ -3,11 +3,13 @@ import IconLink from "./lib/components/IconLink.svelte";
 import Link from "./lib/components/Link.svelte";
 import ServiceContainer from "./lib/components/ServiceContainer.svelte";
 import ServiceItem from "./lib/components/ServiceItem.svelte";
-import type { DashboardConfig } from "./lib/types/config.types";
-import { loadDashboardConfig } from "./lib/utils/dashboard/config";
-import { CONFIG_PATH } from "./lib/utils/dashboard/constants";
+import type { DashboardConfig } from "./lib/utils/config/configSchema";
+import {
+    CONFIG_PATH,
+    loadDashboardConfig,
+} from "./lib/utils/config/dashboardConfig";
 
-let dashboardConfigPromise = loadDashboardConfig(CONFIG_PATH);
+let dashboardConfig = loadDashboardConfig(CONFIG_PATH);
 let searchTerm = $state("");
 
 const filterServiceItems = (config: DashboardConfig | null) => {
@@ -65,8 +67,8 @@ const filterServiceItems = (config: DashboardConfig | null) => {
             placeholder="Search..."
             bind:value={searchTerm}
         />
-        {#await dashboardConfigPromise then dashboardResult}
-            {#if !dashboardResult.ok}
+        {#await dashboardConfig then dashboardResult}
+            {#if !dashboardResult.success}
                 <div class="rounded bg-white p-2 shadow">
                     <h1 class="text-lg font-semibold text-red-500">
                         Error loading configuration
@@ -76,11 +78,11 @@ const filterServiceItems = (config: DashboardConfig | null) => {
             {:else}
                 <div class="grid-cols-3 gap-4 sm:grid">
                     {#if searchTerm === ""}
-                        {#each dashboardResult.value.services as service, index (index)}
+                        {#each dashboardResult.data.services as service, index (index)}
                             <ServiceContainer {...service} />
                         {/each}
                     {:else}
-                        {#each filterServiceItems(dashboardResult.value) as item, index (index)}
+                        {#each filterServiceItems(dashboardResult.data) as item, index (index)}
                             <ServiceItem {...item} />
                         {/each}
                     {/if}
