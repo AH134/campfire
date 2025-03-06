@@ -2,9 +2,7 @@ version: '3'
 
 services:
   campfire:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: xw134/campfire
     container_name: campfire
     ports:
       - "3000:3000"
