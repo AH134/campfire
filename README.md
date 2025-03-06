@@ -11,7 +11,7 @@
 - 🔎 Fuzzy search
 
 ## Getting Started
-Campfire is a fully static dashboard that uses a yaml file for configuration. See `data/config.yml` for more details and examples.
+Campfire is a fully static dashboard that uses a yaml file for configuration. See `public/data/config.yml` for more details and examples.
 
 ### Using Docker
 **Start the container with `docker run`**
