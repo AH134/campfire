@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  campfire:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: campfire
+    ports:
+      - "3000:3000"
+    volumes:
+        - /path/to/config/dir:/var/www/html/data
+    restart: unless-stopped
+    networks:
+      - campfire_network
+    environment:
+    - NODE_ENV=production
+
+networks:
+  campfire_network:
+    driver: bridge
+
+  
+
+
+
+
+
+
+
+
