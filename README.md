@@ -48,7 +48,7 @@ networks:
 
 ```
 
-# Build manually
+## Build manually
 ```sh
 npm install
 npm run build
