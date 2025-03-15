@@ -2,8 +2,8 @@
 import { onMount } from "svelte";
 import IconLink from "./lib/components/IconLink.svelte";
 import Link from "./lib/components/Link.svelte";
-import ServiceContainer from "./lib/components/ServiceContainer.svelte";
-import ServiceItem from "./lib/components/ServiceItem.svelte";
+import ServiceContainer from "./lib/components/DashboardService/ServiceContainer.svelte";
+import ServiceItem from "./lib/components/DashboardService/ServiceItem.svelte";
 import type { DashboardConfig } from "./lib/utils/config/configSchema";
 import {
     CONFIG_PATH,
@@ -40,7 +40,7 @@ const filterServiceItems = (config: DashboardConfig | null) => {
 </script>
 
 <header
-    class="dark:bg-mine-shaft-950 dark:border-b-mine-shaft-900 border-b border-b-zinc-200 bg-white p-3 text-zinc-700 drop-shadow-sm dark:text-zinc-100"
+    class="border-b border-b-zinc-200 bg-white p-2 text-zinc-700 drop-shadow-sm dark:border-b-mine-shaft-900 dark:bg-mine-shaft-950 dark:text-zinc-100"
 >
     <div
         class="m-auto flex items-center justify-between align-middle md:max-w-screen-2xl"
@@ -56,7 +56,7 @@ const filterServiceItems = (config: DashboardConfig | null) => {
             <ul class="flex items-center">
                 <li>
                     <input
-                        class="dark:bg-mine-shaft-950 dark:border-mine-shaft-900 mr-1 hidden rounded-md border bg-white p-1 shadow-sm sm:block dark:text-zinc-100"
+                        class="mr-1 hidden rounded-md border bg-white p-1 shadow-sm dark:border-mine-shaft-900 dark:bg-mine-shaft-950 dark:text-zinc-100 sm:block"
                         type="search"
                         placeholder="Search..."
                         bind:value={searchTerm}
@@ -83,11 +83,11 @@ const filterServiceItems = (config: DashboardConfig | null) => {
     </div>
 </header>
 
-<main class="dark:bg-woodsmoke-950 flex-1 bg-zinc-100 p-3 text-zinc-700">
+<main class="flex-1 bg-zinc-100 p-2 text-zinc-700 dark:bg-woodsmoke-950">
     <div class="m-auto md:max-w-screen-2xl md:p-2">
         {#await dashboardConfig then dashboardResult}
             {#if !dashboardResult.success}
-                <div class="dark:bg-mine-shaft-950 rounded bg-white p-2 shadow">
+                <div class="rounded bg-white p-2 shadow dark:bg-mine-shaft-950">
                     <h1 class="text-lg font-semibold text-red-500">
                         Error loading configuration
                     </h1>
@@ -97,7 +97,7 @@ const filterServiceItems = (config: DashboardConfig | null) => {
                 </div>
             {:else}
                 <input
-                    class="dark:bg-mine-shaft-950 dark:border-mine-shaft-900 mb-4 rounded-md border bg-white p-1 shadow-sm sm:hidden dark:text-zinc-100"
+                    class="mb-4 rounded-md border bg-white p-1 shadow-sm dark:border-mine-shaft-900 dark:bg-mine-shaft-950 dark:text-zinc-100 sm:hidden"
                     type="search"
                     placeholder="Search..."
                     bind:value={searchTerm}
@@ -119,7 +119,7 @@ const filterServiceItems = (config: DashboardConfig | null) => {
 </main>
 
 <footer
-    class="dark:bg-mine-shaft-950 dark:border-t-mine-shaft-900 mt-auto min-h-10 border-t border-t-zinc-200 bg-white p-3 text-center text-zinc-700 dark:text-zinc-100"
+    class="mt-auto min-h-10 border-t border-t-zinc-200 bg-white p-2 text-center text-zinc-700 dark:border-t-mine-shaft-900 dark:bg-mine-shaft-950 dark:text-zinc-100"
 >
     <span>
         Created with

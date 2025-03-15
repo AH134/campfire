@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Service } from "../utils/config/configSchema";
+import type { Service } from "../../utils/config/configSchema";
 import ServiceItem from "./ServiceItem.svelte";
 
 let { name, icon, items }: Service = $props();

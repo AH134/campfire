@@ -1,11 +1,11 @@
 <script lang="ts">
-import type { ServiceItem } from "../utils/config/configSchema";
+import type { ServiceItem } from "../../utils/config/configSchema";
 
 let { name, subtitle, logo, url, target }: ServiceItem = $props();
 </script>
 
 <div
-    class="dark:bg-mine-shaft-950 mb-3 translate-y-0.5 rounded-md bg-white shadow-md transition-transform duration-300 ease-in-out hover:-translate-y-0.5 hover:transition-all"
+    class="mb-3 translate-y-0.5 rounded-md bg-white shadow-md transition-transform duration-300 ease-in-out hover:-translate-y-0.5 hover:transition-all dark:bg-mine-shaft-950"
 >
     <a href={url} target={target}>
         <div class="flex h-20 items-center gap-3 p-2">
