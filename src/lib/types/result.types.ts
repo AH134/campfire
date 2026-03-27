@@ -19,11 +19,11 @@
  * @see {@link Error} for the default error type.
  */
 export type Result<T, E = Error> =
-    | {
-          success: true;
-          data: T;
-      }
-    | {
-          success: false;
-          error: E;
-      };
+  | {
+      success: true;
+      data: T;
+    }
+  | {
+      success: false;
+      error: E;
+    };

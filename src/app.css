@@ -1,5 +1,5 @@
-@import '@fortawesome/fontawesome-free/css/all' layer(base);
-@import 'tailwindcss';
+@import "@fortawesome/fontawesome-free/css/all" layer(base);
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -48,7 +48,7 @@
 }
 
 #app {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
