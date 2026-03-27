@@ -13,7 +13,9 @@ export const enum CONFIG_ERROR {
 
 export const getYamlConfig = async (configPath: string): Promise<Result<string>> => {
   try {
-    const response = await fetch(configPath);
+    const response = await fetch(configPath, {
+      cache: "no-cache"
+    });
     const yamlContent = await response.text();
 
     return {
