@@ -40,10 +40,10 @@ const filterServiceItems = (config: DashboardConfig | null) => {
 </script>
 
 <header
-    class="border-b border-b-zinc-200 bg-white p-2 text-zinc-700 drop-shadow-sm dark:border-b-mine-shaft-900 dark:bg-mine-shaft-950 dark:text-zinc-100"
+    class="border-b border-b-zinc-200 bg-white p-2 text-zinc-700 drop-shadow-xs dark:border-b-mine-shaft-900 dark:bg-mine-shaft-950 dark:text-zinc-100"
 >
     <div
-        class="m-auto flex items-center justify-between align-middle md:max-w-screen-2xl"
+        class="m-auto flex items-center justify-between align-middle md:max-w-(--breakpoint-2xl)"
     >
         <div>
             <a class="flex items-center gap-1 align-middle" href="/">
@@ -56,7 +56,7 @@ const filterServiceItems = (config: DashboardConfig | null) => {
             <ul class="flex items-center">
                 <li>
                     <input
-                        class="mr-1 hidden rounded-md border bg-white p-1 shadow-sm dark:border-mine-shaft-900 dark:bg-mine-shaft-950 dark:text-zinc-100 sm:block"
+                        class="mr-1 hidden rounded-md border bg-white p-1 shadow-xs dark:border-mine-shaft-900 dark:bg-mine-shaft-950 dark:text-zinc-100 sm:block"
                         type="search"
                         placeholder="Search..."
                         bind:value={searchTerm}
@@ -84,10 +84,10 @@ const filterServiceItems = (config: DashboardConfig | null) => {
 </header>
 
 <main class="flex-1 bg-zinc-100 p-2 text-zinc-700 dark:bg-woodsmoke-950">
-    <div class="m-auto md:max-w-screen-2xl md:p-2">
+    <div class="m-auto md:max-w-(--breakpoint-2xl) md:p-2">
         {#await dashboardConfig then dashboardResult}
             {#if !dashboardResult.success}
-                <div class="rounded bg-white p-2 shadow dark:bg-mine-shaft-950">
+                <div class="rounded-sm bg-white p-2 shadow-sm dark:bg-mine-shaft-950">
                     <h1 class="text-lg font-semibold text-red-500">
                         Error loading configuration
                     </h1>
@@ -97,7 +97,7 @@ const filterServiceItems = (config: DashboardConfig | null) => {
                 </div>
             {:else}
                 <input
-                    class="mb-4 rounded-md border bg-white p-1 shadow-sm dark:border-mine-shaft-900 dark:bg-mine-shaft-950 dark:text-zinc-100 sm:hidden"
+                    class="mb-4 rounded-md border bg-white p-1 shadow-xs dark:border-mine-shaft-900 dark:bg-mine-shaft-950 dark:text-zinc-100 sm:hidden"
                     type="search"
                     placeholder="Search..."
                     bind:value={searchTerm}
