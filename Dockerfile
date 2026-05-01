@@ -15,6 +15,8 @@ COPY --from=build /app/dist/data /default-data
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
+VOLUME [ "/var/www/html/data" ]
+
 ENTRYPOINT [ "/entrypoint.sh" ]
 
 CMD [ "nginx", "-g", "daemon off;" ]
