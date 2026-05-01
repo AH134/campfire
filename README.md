@@ -22,23 +22,24 @@ Campfire is a fully static dashboard that uses a yaml file for configuration. Se
 ```sh
 docker run \
   --name campfire \
-  -p 3000:3000 \
+  -p 3000:80 \
   -v /path/to/data:/var/www/html/data \
+  -e NODE_ENV=production \
+  -e USER_UID=1000 \
+  -e USER_GID=1000 \
   --restart=unless-stopped \
-  xw134/campfire:latest
+  xw134/campfire
 ```
 
 **or `docker-compose`**
 
 ```yaml
-version: "3"
-
 services:
   campfire:
     image: xw134/campfire
     container_name: campfire
     ports:
-      - "3000:3000"
+      - "3030:80"
     volumes:
       - /path/to/config/dir:/var/www/html/data
     restart: unless-stopped
@@ -46,6 +47,8 @@ services:
       - campfire_network
     environment:
       - NODE_ENV=production
+      - USER_UID=1000
+      - USER_GID=1000
 
 networks:
   campfire_network:
